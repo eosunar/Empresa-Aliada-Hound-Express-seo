@@ -1,0 +1,168 @@
+/* === public/sitemap.xml === */
+<?xml version="1.0" encoding="UTF-8"?>
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
+  <url>
+    <loc>https://houndexpress.com/</loc>
+    <lastmod>2024-01-20T00:00:00+00:00</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>1.0</priority>
+  </url>
+  <url>
+    <loc>https://houndexpress.com/registro</loc>
+    <lastmod>2024-01-20T00:00:00+00:00</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://houndexpress.com/buscar</loc>
+    <lastmod>2024-01-20T00:00:00+00:00</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+</urlset>
+
+/* === public/robots.txt === */
+User-agent: *
+Allow: /
+
+# SEO optimized robots.txt for Hound Express
+User-agent: Googlebot
+Allow: /
+Crawl-delay: 1
+
+User-agent: Bingbot
+Allow: /
+Crawl-delay: 1
+
+User-agent: *
+Allow: /
+Disallow: /api/
+Disallow: /_next/
+Disallow: /admin/
+Crawl-delay: 2
+
+# Sitemap location
+Sitemap: https://houndexpress.com/sitemap.xml
+
+# Block AI crawlers if needed (optional)
+User-agent: GPTBot
+Disallow: /
+
+User-agent: ChatGPT-User
+Disallow: /
+
+User-agent: CCBot
+Disallow: /
+
+/* === public/manifest.json === */
+{
+  "name": "Hound Express - Sistema de Gestión de Guías",
+  "short_name": "Hound Express",
+  "description": "Sistema integral de gestión y seguimiento de guías de envío en tiempo real",
+  "start_url": "/",
+  "display": "standalone",
+  "background_color": "#ffffff",
+  "theme_color": "#004080",
+  "orientation": "portrait-primary",
+  "lang": "es",
+  "scope": "/",
+  "categories": ["business", "productivity", "logistics"],
+  "icons": [
+    {
+      "src": "/favicon-16x16.png",
+      "sizes": "16x16",
+      "type": "image/png",
+      "purpose": "any"
+    },
+    {
+      "src": "/favicon-32x32.png",
+      "sizes": "32x32",
+      "type": "image/png",
+      "purpose": "any"
+    },
+    {
+      "src": "/apple-icon-180x180.png",
+      "sizes": "180x180",
+      "type": "image/png",
+      "purpose": "any"
+    },
+    {
+      "src": "/android-chrome-192x192.png",
+      "sizes": "192x192",
+      "type": "image/png",
+      "purpose": "any maskable"
+    },
+    {
+      "src": "/android-chrome-512x512.png",
+      "sizes": "512x512",
+      "type": "image/png",
+      "purpose": "any maskable"
+    }
+  ],
+  "screenshots": [
+    {
+      "src": "/screenshot-desktop.jpg",
+      "sizes": "1280x720",
+      "type": "image/jpeg",
+      "platform": "wide",
+      "label": "Dashboard principal de Hound Express en desktop"
+    },
+    {
+      "src": "/screenshot-mobile.jpg",
+      "sizes": "390x844",
+      "type": "image/jpeg",
+      "platform": "narrow",
+      "label": "Vista móvil de Hound Express"
+    }
+  ],
+  "shortcuts": [
+    {
+      "name": "Registrar Guía",
+      "short_name": "Registrar",
+      "description": "Crear una nueva guía de envío",
+      "url": "/?section=registro",
+      "icons": [
+        {
+          "src": "/shortcut-register.png",
+          "sizes": "96x96",
+          "type": "image/png"
+        }
+      ]
+    },
+    {
+      "name": "Buscar Guía",
+      "short_name": "Buscar",
+      "description": "Buscar guías existentes",
+      "url": "/?section=buscar",
+      "icons": [
+        {
+          "src": "/shortcut-search.png",
+          "sizes": "96x96",
+          "type": "image/png"
+        }
+      ]
+    }
+  ],
+  "related_applications": [],
+  "prefer_related_applications": false
+}
+
+/* === app/head.tsx (for additional meta tags) === */
+export default function Head() {
+  return (
+    <>
+      {/* Preload critical fonts */}
+      <link
+        rel="preload"
+        href="/fonts/inter-var.woff2"
+        as="font"
+        type="font/woff2"
+        crossOrigin="anonymous"
+      />
+      
+      {/* DNS prefetch for external resources */}
+      <link rel="dns-prefetch" href="//fonts.googleapis.com" />
+      <link rel="dns-prefetch" href="//fonts.gstatic.com" />
+      
+      {/* Critical CSS preload */}
+      <link rel="preload" href="/css/critical.css" as="style" />
